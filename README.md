@@ -84,7 +84,7 @@ Text within a note can be emphasized by wrapping it with back quotes: `` ` ``
 
 ### Completed tasks
 
-Completed tasks have a plus sign `+` in front of the first hyphen. Any sub-tasks are automatically considered completed.
+Completed tasks have a plus sign `+` in front of the first hyphen. The completed state can be toggled using the _"Toggle Comment"_ shortcut (`super+/` for Mac or `ctrl+/` for Linux and Windows). Any sub-tasks are automatically considered completed, as well.
 
 ![](https://raw.github.com/tiffon/sublime-to-done/master/img/task-state-completed.png)
 
