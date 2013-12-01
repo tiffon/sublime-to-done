@@ -1,0 +1,85 @@
+/*
+	Some CSS Style comments
+	That have a closing token
+*/
+
+Getting started
+-	Create a task by adding a '-' in front of it
+----	More hyphens means its more imporant
+	-----	5 for the most urgent items
+	----	4 for important items
+	---	3 for the middle
+	--	2 For the pretty light stuff
+	-	1 for the low-priority or easy stuff
+---	A taks can have notes: by adding a ':' and then putting in the notes
+---	Or by adding the notes under the task
+	Like these notes. Notes can have `emphasis` by adding slanted quotes.
+
+
+Sub-tasks
+----	A task can have sub-tasks
+	--	Sub tasks are indented
+	-	And they can have: notes just like any task
+		---	Or 3rd level sub-tasks
+			With notes under
+
+
+Completed items have a '+'
++--	This item is finished because it starts with a'+'
+	---	This sub-task is finished bc it's parent is
+----	Completion applies to sub-tasks
+----	Use the keys `cmd /` shortcut to toggle completion
+	It's just like toggling a comment
+
+
+State of emergency
+!---	Emergency / Disaster: This item is in a state of emergency.
+	It's in the emergency state because of the `leading excplamation mark`. 
+	----	The emergency will apply to any sub-tasks
+	--	Like these two
++!--	A completed emergency task
+	This emergency item was handled.
+
+
+The symbol list
+----	For more awesomeness: check out the `cmd r` shortcut and revel in the glory
+
+
+Hard-tabs at 8-space width
+----	A hard-tab at 8-space width AFTER the '-'s:
+	`Why?`
+		The task titles will always line up.
+	`Why hard-tabs?`
+		The alignment of the title won't re-adjust when you change
+		the number of dashes, add an exclamation mark or plus-sign.
+	`Why 8-space width?`
+		8 is the right number because there is a max of 7 token characters
+		that might precede the task-title. 7 because you can have up
+		to `5` dashes + `1` exclamation mark + `1` plus-sign. Tabs
+		that are `8` spaces wide allows there to always be at least one
+		an extra space between the tokens and the task title:
+	+!-----	A title here
+	----	A Title here
+	---	A title here
+		^ `sweet alignment`
+
+
+More expressive notes
+---	If you need something more conplex notes: ///
+	An `explicit note` is started by the `///` characters.
+	An explicit note can have lines that start with a `-` or `+`.
+	Explict notes end when another `///` is encountered. 
+	Whitespace is ignored
+	- some simple notes
+	- that aren't considered tasks
+	- but are a list
+	///
+
+
+Ignored items have a '+'
+.--	This item is ignored because it starts with a `period`
+----	Ignoring applies to sub-tasks
+	.---	This sub-task is ignored
+		---	This sub-task is ignored bc its parent is
+.----	(Reason for ignoring) Ignored items can have a note in parentheses
+	so you can save a note indicating why it's being ignored

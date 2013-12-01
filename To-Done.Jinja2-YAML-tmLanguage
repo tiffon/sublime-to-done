@@ -1,0 +1,164 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+{#
+This is a Jinja2 template that generates a YAML file that is converted
+to a tmLanguage file.
+#}
+
+# {% set num_levels = 5 %} {# variable for Jinja2 #}
+---
+name: To-Done
+fileTypes: [todo, todone]
+scopeName: text.todone
+uuid: 93118f22-fcc3-4007-9de2-74fcbb17f143
+
+patterns:
+- include: '#everything'
+
+#######################################
+
+repository:
+
+  everything:
+    patterns:
+      - include: '#complete'
+      - include: '#ignore'
+      - include: '#task-class'
+      - include: '#lvl-disaster'
+      - include: '#lvl-1'
+      - include: '#lvl-2'
+      - include: '#lvl-3'
+      - include: '#lvl-4'
+      - include: '#lvl-5'
+      - include: '#note-include'
+      - include: '#raw-note'
+
+  note-include:
+    patterns:
+      - include: '#note'
+      - include: '#note-em'
+
+  note:
+    name: storage.task-note.todone
+    begin: ^\s*(?!(!|\-|\+|\.|///))
+    end: $
+    patterns:
+      - include: '#note-em'
+
+  note-em:
+    name: storage.task-note.em.todone
+    begin: '`'
+    beginCaptures:
+      '0': {name: punctuation.definition.note.em.begin.todone}
+    end: '`'
+    endCaptures: 
+      '0': {name: punctuation.definition.note.em.end.todone}
+    patterns:
+      - match: \\`
+
+  raw-note:
+    name: storage.task-note.raw.todone
+    begin: ///
+    beginCaptures:
+      '0': {name: punctuation.definition.note.raw.begin.todone}
+    end: ///
+    endCaptures:
+      '0': {name: punctuation.definition.note.raw.end.todone}
+    patterns:
+      - include: '#note-em'
+
+  complete:
+    name: storage.type.task.completed.todone
+    begin: ^(\s*)(\+!?)(\-+)?
+    beginCaptures:
+      '2': {name: keyword.operator.completed.todone}
+      '3': {name: keyword.operator.completed.secondary.todone}
+    end: ^(?!\1)|^\s*$|^(?=\1[^\s])
+    patterns:
+      - name: keyword.operator.completed.secondary.todone
+        match: ^\s+(\+)?(!?\-+)
+      - include: '#ignore'
+        # had something here to consume raw notes:
+        # <dict>
+        #   <key>begin</key>
+        #   <string>~</string>
+        #   <key>end</key>
+        #   <string>~</string>
+        # </dict>
+
+  ignore:
+    name: storage.type.task.ignore.todone
+    begin: |
+      (?x)
+      ^
+        (\s*)
+        (\.)(\+?!?\-+)
+        \s*
+        (?:\(
+          ([^\)]+)
+        \))?
+    beginCaptures:
+      '2': {name: keyword.operator.ignore.todone}
+      '3': {name: keyword.operator.ignore.secondary.todone}
+      '4': {name: keyword.operator.ignore.desc.todone}
+    end: ^(?!\1)|^\s*$|^(?=\1[^\s])
+    patterns:
+      - name: keyword.operator.task.todone
+        match: ^\s+\.?\+?\s*!?\s*\-+
+        # capture for second name bc comma breaks syntax highlight
+        captures:
+          '0': {name: keyword.operator.ignore.secondary.todone}
+        # had something here to consume raw notes:
+        # <dict>
+        #   <key>begin</key>
+        #   <string>~</string>
+        #   <key>end</key>
+        #   <string>~</string>
+        # </dict>
+  task-class:
+    patterns:
+      - name: entity.name.class.todone
+        begin: \/\*
+        beginCaptures:
+          '0': {name: punctuation.definition.class-block.todone}
+        end: \*\/
+        endCaptures:
+          '0': {name: punctuation.definition.class-block.todone}
+      - name: entity.name.class.todone
+        match: ^[^\s\.\-+!].*$
+  lvl-disaster:
+    name: meta.condition.disaster.todone
+    begin: |
+      (?x)
+      (\s*)
+      (!)
+        (?:
+          {% for i in range(1, num_levels+1) -%}
+            (\-{{ "{" ~ i ~ "}" }})\s+((?:://|[^:~\n])*:?) {{ "|" if not loop.last }}
+          {% endfor %}
+        )
+    beginCaptures:
+      '0': {name: symbol.definition.task-heading.todone}
+      '2': {name: punctuation.definition.disaster.begin.todone}
+      {% for i in range(num_levels) -%}
+      '{{ 2 * i + 3 }}': {name: keyword.operator.task.lvl{{ i + 1 }}.todone}
+      '{{ 2 * i + 4 }}': {name: entity.name.task.lvl{{ i + 1 }}.todone}
+      {% endfor %}
+    end: ^(?!\1)|^(?=\s*\n)|^(?=\1[^\s])
+    # end: ^(?!\1)|^(?=\s*\n)|^(?=\1(\.|!|\-|\+))
+    endCaptures:
+      '0': {name: punctuation.definition.class-block.todone}
+    patterns:
+      - include: '#everything'
+{% for i in range(1, num_levels+1) %}
+  lvl-{{ i }}:
+    name: storage.type.task.todone
+    begin: (\s*)(\-{{ "{" ~ i ~ "}" }})\s((?:://|[^:~\n])*:?)
+    beginCaptures:
+      '0': {name: symbol.definition.task-heading.todone}
+      '2': {name: keyword.operator.task.lvl{{ i }}.todone}
+      '3': {name: entity.name.task.lvl{{ i }}.todone}
+    end: ^(?!\1)|^(?=\s*\n)|^(?=\1[^\s])
+    patterns:
+      - include: '#everything'
+{% endfor %}
+...

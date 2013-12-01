@@ -1,0 +1,27 @@
+{
+    "extensions":
+    [
+        "todo",
+        "todone"
+    ],
+
+    // Fold buttons are the triangles shown in the gutter to fold regions of text
+    "fold_buttons": true,
+
+    // Hides the fold buttons unless the mouse is over the gutter
+    "fade_fold_buttons": false,
+
+    // Columns in which to display vertical rulers
+    "rulers": [],
+
+    // Set to true to turn spell checking on by default
+    "spell_check": false,
+
+    // The number of spaces a tab is considered equal to
+    "tab_size": 8,
+
+    // Set to true to insert spaces when tab is pressed
+    "translate_tabs_to_spaces": false,
+
+    "color_scheme": "Packages/To-Done/Monokai_todone.hidden-tmTheme",
+}
