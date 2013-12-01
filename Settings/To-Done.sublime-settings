@@ -23,5 +23,5 @@
     // Set to true to insert spaces when tab is pressed
     "translate_tabs_to_spaces": false,
 
-    "color_scheme": "Packages/To-Done/Monokai_todone.hidden-tmTheme",
+    "color_scheme": "Packages/To-Done/Monokai_todone.hidden-tmTheme"
 }
