@@ -133,7 +133,7 @@ repository:
       (!)
         (?:
           {% for i in range(1, num_levels+1) -%}
-            (\-{{ "{" ~ i ~ "}" }})\s+((?:://|[^:~\n])*:?) {{ "|" if not loop.last }}
+            (\-{{ "{" ~ i ~ "}" }})\s+((?:://|/(?!//)|[^:\n/])*:?) {{ "|" if not loop.last }}
           {% endfor %}
         )
     beginCaptures:
@@ -152,7 +152,7 @@ repository:
 {% for i in range(1, num_levels+1) %}
   lvl-{{ i }}:
     name: storage.type.task.todone
-    begin: (\s*)(\-{{ "{" ~ i ~ "}" }})\s((?:://|[^:~\n])*:?)
+    begin: (\s*)(\-{{ "{" ~ i ~ "}" }})\s((?:://|/(?!//)|[^:\n/])*:?)
     beginCaptures:
       '0': {name: symbol.definition.task-heading.todone}
       '2': {name: keyword.operator.task.lvl{{ i }}.todone}
