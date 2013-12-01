@@ -2,7 +2,7 @@
 
 ## About
 
-This package is a simple tool for creating to do lists. To do lists are just text files with the extension "todo". The functionality of this package is based entirely on syntax highlighting.
+This package is a simple tool for creating to do lists. To do lists are just text files with the extension "todo". The functionality of this package is based entirely on a language syntax.
 
 ![](https://raw.github.com/tiffon/sublime-to-done/master/img/example.png)
 
