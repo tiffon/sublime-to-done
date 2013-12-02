@@ -51,6 +51,10 @@
 					<key>include</key>
 					<string>#ignore</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#task-over-raw-note</string>
+				</dict>
 			</array>
 		</dict>
 		<key>everything</key>
@@ -152,6 +156,10 @@
 					<string>^\s+\.?\+?\s*!?\s*\-+</string>
 					<key>name</key>
 					<string>keyword.operator.task.todone</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#task-over-raw-note</string>
 				</dict>
 			</array>
 		</dict>
@@ -550,6 +558,29 @@
 					<string>^[^\s\.\-+!].*$</string>
 					<key>name</key>
 					<string>entity.name.class.todone</string>
+				</dict>
+			</array>
+		</dict>
+		<key>task-over-raw-note</key>
+		<dict>
+			<key>begin</key>
+			<string>///</string>
+			<key>end</key>
+			<string>///</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>`</string>
+					<key>end</key>
+					<string>`</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\\`</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>

@@ -65,6 +65,15 @@ repository:
     patterns:
       - include: '#note-em'
 
+  task-over-raw-note:
+    begin: ///
+    end: ///
+    patterns:
+      - begin: '`'
+        end: '`'
+        patterns:
+          - match: \\`
+
   complete:
     name: storage.type.task.completed.todone
     begin: ^(\s*)(\+!?)(\-+)?
@@ -76,6 +85,7 @@ repository:
       - name: keyword.operator.completed.secondary.todone
         match: ^\s+(\+)?(!?\-+)
       - include: '#ignore'
+      - include: '#task-over-raw-note'
         # had something here to consume raw notes:
         # <dict>
         #   <key>begin</key>
@@ -106,6 +116,7 @@ repository:
         # capture for second name bc comma breaks syntax highlight
         captures:
           '0': {name: keyword.operator.ignore.secondary.todone}
+      - include: '#task-over-raw-note'
         # had something here to consume raw notes:
         # <dict>
         #   <key>begin</key>
