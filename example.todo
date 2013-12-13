@@ -11,7 +11,7 @@ Getting started
 	---	3 for the middle
 	--	2 For the pretty light stuff
 	-	1 for the low-priority or easy stuff
----	A taks can have notes: by adding a ':' and then putting in the notes
+---	A task can have notes: by adding a ':' and then putting in the notes
 ---	Or by adding the notes under the task
 	Like these notes. Notes can have `emphasis` by adding slanted quotes.
 
@@ -34,7 +34,7 @@ Completed items have a '+'
 
 State of emergency
 !---	Emergency / Disaster: This item is in a state of emergency.
-	It's in the emergency state because of the `leading excplamation mark`. 
+	It's in the emergency state because of the `leading exclamation mark`. 
 	----	The emergency will apply to any sub-tasks
 	--	Like these two
 +!--	A completed emergency task
@@ -65,7 +65,7 @@ Hard-tabs at 8-space width
 
 
 More expressive notes
----	If you need something more conplex notes: ///
+---	If you need something more complex notes: ///
 	An `explicit note` is started by the `///` characters.
 	An explicit note can have lines that start with a `-` or `+`.
 	Explict notes end when another `///` is encountered. 
