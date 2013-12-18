@@ -8,7 +8,7 @@
 		<string>todone</string>
 	</array>
 	<key>name</key>
-	<string>To-Done</string>
+	<string>ToDone</string>
 	<key>patterns</key>
 	<array>
 		<dict>

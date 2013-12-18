@@ -6,7 +6,7 @@ to a tmLanguage file.
 
 # {% set num_levels = 5 %} {# variable for Jinja2 #}
 ---
-name: To-Done
+name: ToDone
 fileTypes: [todo, todone]
 scopeName: text.todone
 uuid: 93118f22-fcc3-4007-9de2-74fcbb17f143

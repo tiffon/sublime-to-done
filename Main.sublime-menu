@@ -12,26 +12,26 @@
                 "children":
                 [
                     {
-                        "caption": "To-Done",
+                        "caption": "ToDone",
                         "children":
                         [
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/To-Done/readme.todo"},
+                                "args": {"file": "${packages}/ToDone/readme.todo"},
                                 "caption": "README"
                             },
                             { "caption": "-" },
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/To-Done/Settings/To-Done.sublime-settings"
+                                    "file": "${packages}/ToDone/Settings/ToDone.sublime-settings"
                                 },
                                 "caption": "Settings – Default"
                             },
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/User/To-Done.sublime-settings"
+                                    "file": "${packages}/User/ToDone.sublime-settings"
                                 },
                                 "caption": "Settings – User"
                             }

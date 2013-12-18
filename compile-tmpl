@@ -7,8 +7,8 @@ except Exception, e:
 	print "Jinja2 tempating library required: http://jinja.pocoo.org/docs/"
 	raise e
 
-src = "To-Done.Jinja2-YAML-tmLanguage"
-dest = "To-Done.YAML-tmLanguage"
+src = "ToDone.jinja2.YAML-tmLanguage"
+dest = "ToDone.YAML-tmLanguage"
 heading = """# This file should not be edited directly.
 # It has been generated from `{0}` via the python script `compile-tmpl`
 """.format(src)
