@@ -6,7 +6,7 @@ This package is a simple tool for creating to do lists with the following featur
 
 * Hierarchically organized tasks
 * 5 levels of importance for tasks
-* Notes of any legnth for any task
+* Notes of any length for any task
 * Set a task to either _completed_ or _cancelled_
 * Set a task to an _emergency state_
 
