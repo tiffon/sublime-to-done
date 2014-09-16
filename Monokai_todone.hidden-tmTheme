@@ -175,7 +175,16 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#606060</string>
+				<string>#3a3a3a</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>scope</key>
+			<string>keyword.operator.task.numeral</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#3a3a3a</string>
 			</dict>
 		</dict>
 		<dict>

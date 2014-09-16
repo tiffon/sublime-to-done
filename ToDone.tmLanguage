@@ -113,7 +113,7 @@
 			<string>(?x)
 ^
   (\s*)
-  (\.)(\+?!?\-+)
+  (\.)(\+?!?\-+[12345]?)
   \s*
   (?:\(
     ([^\)]+)
@@ -166,7 +166,7 @@
 		<key>lvl-1</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{1})\s((?:://|/(?!//)|[^:\n/])*:?)</string>
+			<string>(\s*)(\-{1}|\-(1))\s((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -180,6 +180,11 @@
 					<string>keyword.operator.task.lvl1.todone</string>
 				</dict>
 				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.numeral.lvl1.todone</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.task.lvl1.todone</string>
@@ -200,7 +205,7 @@
 		<key>lvl-2</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{2})\s((?:://|/(?!//)|[^:\n/])*:?)</string>
+			<string>(\s*)(\-{2}|\-(2))\s((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -214,6 +219,11 @@
 					<string>keyword.operator.task.lvl2.todone</string>
 				</dict>
 				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.numeral.lvl2.todone</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.task.lvl2.todone</string>
@@ -234,7 +244,7 @@
 		<key>lvl-3</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{3})\s((?:://|/(?!//)|[^:\n/])*:?)</string>
+			<string>(\s*)(\-{3}|\-(3))\s((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -248,6 +258,11 @@
 					<string>keyword.operator.task.lvl3.todone</string>
 				</dict>
 				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.numeral.lvl3.todone</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.task.lvl3.todone</string>
@@ -268,7 +283,7 @@
 		<key>lvl-4</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{4})\s((?:://|/(?!//)|[^:\n/])*:?)</string>
+			<string>(\s*)(\-{4}|\-(4))\s((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -282,6 +297,11 @@
 					<string>keyword.operator.task.lvl4.todone</string>
 				</dict>
 				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.numeral.lvl4.todone</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.task.lvl4.todone</string>
@@ -302,7 +322,7 @@
 		<key>lvl-5</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{5})\s((?:://|/(?!//)|[^:\n/])*:?)</string>
+			<string>(\s*)(\-{5}|\-(5))\s((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -316,6 +336,11 @@
 					<string>keyword.operator.task.lvl5.todone</string>
 				</dict>
 				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.numeral.lvl5.todone</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.task.lvl5.todone</string>
@@ -340,11 +365,11 @@
 (\s*)
 (!)
   (?:
-    (\-{1})\s+((?:://|/(?!//)|[^:\n/])*:?) |
-    (\-{2})\s+((?:://|/(?!//)|[^:\n/])*:?) |
-    (\-{3})\s+((?:://|/(?!//)|[^:\n/])*:?) |
-    (\-{4})\s+((?:://|/(?!//)|[^:\n/])*:?) |
-    (\-{5})\s+((?:://|/(?!//)|[^:\n/])*:?) 
+    (\-{1}|\-(1))\s+((?:://|/(?!//)|[^:\n/])*:?) |
+    (\-{2}|\-(2))\s+((?:://|/(?!//)|[^:\n/])*:?) |
+    (\-{3}|\-(3))\s+((?:://|/(?!//)|[^:\n/])*:?) |
+    (\-{4}|\-(4))\s+((?:://|/(?!//)|[^:\n/])*:?) |
+    (\-{5}|\-(5))\s+((?:://|/(?!//)|[^:\n/])*:?) 
     
   )
 </string>
@@ -358,14 +383,39 @@
 				<key>10</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.task.lvl4.todone</string>
+					<string>keyword.operator.task.numeral.lvl3.todone</string>
 				</dict>
 				<key>11</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.operator.task.lvl5.todone</string>
+					<string>entity.name.task.lvl3.todone</string>
 				</dict>
 				<key>12</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.lvl4.todone</string>
+				</dict>
+				<key>13</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.numeral.lvl4.todone</string>
+				</dict>
+				<key>14</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.task.lvl4.todone</string>
+				</dict>
+				<key>15</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.lvl5.todone</string>
+				</dict>
+				<key>16</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.task.numeral.lvl5.todone</string>
+				</dict>
+				<key>17</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.task.lvl5.todone</string>
@@ -383,36 +433,36 @@
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.task.lvl1.todone</string>
+					<string>keyword.operator.task.numeral.lvl1.todone</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.operator.task.lvl2.todone</string>
+					<string>entity.name.task.lvl1.todone</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.task.lvl2.todone</string>
+					<string>keyword.operator.task.lvl2.todone</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.operator.task.lvl3.todone</string>
+					<string>keyword.operator.task.numeral.lvl2.todone</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.task.lvl3.todone</string>
+					<string>entity.name.task.lvl2.todone</string>
 				</dict>
 				<key>9</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.operator.task.lvl4.todone</string>
+					<string>keyword.operator.task.lvl3.todone</string>
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>^(?!\1)|^(?=\s*\n)|^(?=\1[^\s])</string>
+			<string>^(?!\1\s)|^(?=\s*\n)|^(?=\1[^\s])</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>

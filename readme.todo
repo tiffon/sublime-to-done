@@ -1,52 +1,81 @@
+
+
+#
+#	NOTE: A restart is required after installation.
+#
+
+
+This document details the syntax. Left-aligned texts are considered headings.
+
 /*
-	Some CSS Style comments
-	That have a closing token
+	Offset headings can be created by enclosing text in forward-slashes
+	and asterisks
 */
+
 
 Getting started
 -	Create a task by adding a '-' in front of it
-----	More hyphens means its more imporant
-	-----	5 for the most urgent items
+!----	Add hyphens to change the color
+	!-----	5 looks urgent
 	----	4 for important items
 	---	3 for the middle
-	--	2 For the pretty light stuff
+	--	2 for the pretty light stuff
 	-	1 for the low-priority or easy stuff
----	A task can have notes: by adding a ':' and then putting in the notes
----	Or by adding the notes under the task
+-4	Alternatively, you can add a number after one hyphen
+	-3	This starts with a `-3`
+	-2	`-2` is the same `--`
+	-1	etc...
+	-	This is new in 1.0.5
+
+
+Notes
+-3	A task can have notes: by adding a ':' and then putting in the notes
+-3	Or by adding the notes under the task
 	Like these notes. Notes can have `emphasis` by adding slanted quotes.
 
 
 Sub-tasks
-----	A task can have sub-tasks
-	--	Sub tasks are indented
-	-	And they can have: notes just like any task
-		---	Or 3rd level sub-tasks
+-4	A task can have sub-tasks
+	-2	Sub tasks are indented
+	-1	And they can have: notes just like any task
+		-3	Or 3rd level sub-tasks
 			With notes under
 
 
 Completed items have a '+'
-+--	This item is finished because it starts with a'+'
-	---	This sub-task is finished bc it's parent is
-----	Completion applies to sub-tasks
-----	Use the keys `cmd /` shortcut to toggle completion
++--2	This item is finished because it starts with a'+'
+	-3	This sub-task is finished bc it's parent is
+-2	Completion applies to sub-tasks
+-3	Use the keys `cmd /` shortcut to toggle completion
 	It's just like toggling a comment
 
 
 State of emergency
-!---	Emergency / Disaster: This item is in a state of emergency.
-	It's in the emergency state because of the `leading exclamation mark`. 
+!-3	Emergency / Disaster: This item is in a state of emergency.
+	It's in the emergency state because of the `leading exclamation mark`.
 	----	The emergency will apply to any sub-tasks
 	--	Like these two
 +!--	A completed emergency task
 	This emergency item was handled.
 
 
+Ignored tasks by adding a leading '.'
+.--	This item is ignored because it starts with a `period`
+----	Ignoring applies to sub-tasks
+	.---	This sub-task is ignored
+		---	This sub-sub-task is ignored bc its parent is
+--	Include a reason for ignoring it
+.----	(Reason for ignoring) Ignored items can have a note in parentheses
+	so you can save a note indicating why it's being ignored
+
+
 The symbol list
-----	For more awesomeness: check out the `cmd r` shortcut and revel in the glory
+----	To skim current tasks
+	use the `cmd r` shortcut to see an outline (notes are omited)
 
 
-Hard-tabs at 8-space width
-----	A hard-tab at 8-space width AFTER the '-'s:
+Hard-tabs at 8-width or 5-width
+----	A hard-tab at 8-space width AFTER the '-'s
 	`Why?`
 		The task titles will always line up.
 	`Why hard-tabs?`
@@ -59,27 +88,37 @@ Hard-tabs at 8-space width
 		that are `8` spaces wide allows there to always be at least one
 		an extra space between the tokens and the task title:
 	+!-----	A title here
-	----	A Title here
-	---	A title here
+	--	A title here
 		^ `sweet alignment`
+
+-4	Alternatively, Hard-tabs at 5-space width
+	If the `-4` pattern is used then 5 characters allows for:
+	-	`+` or `.`  token
+	-	! token
+	-	- token
+	-	A number
+	-	A final space to separate the title
+	.!-4	(for example)
+	-3	The default Tab Size can be changed via the menu option:
+		-	Sublime Text
+		-	Preferences
+		-	Package Settings
+		-	ToDone
+		-	Settings - User
+		-2	And adding the following to the file: `
+			{
+			    // The number of spaces a tab is considered equal to
+			    "tab_size": 5
+			}`
 
 
 More expressive notes
 ---	If you need something more complex notes: ///
 	An `explicit note` is started by the `///` characters.
 	An explicit note can have lines that start with a `-` or `+`.
-	Explict notes end when another `///` is encountered. 
+	Explicit notes end when another `///` is encountered.
 	Whitespace is ignored
 	- some simple notes
 	- that aren't considered tasks
 	- but are a list
 	///
-
-
-Ignored items have a '+'
-.--	This item is ignored because it starts with a `period`
-----	Ignoring applies to sub-tasks
-	.---	This sub-task is ignored
-		---	This sub-task is ignored bc its parent is
-.----	(Reason for ignoring) Ignored items can have a note in parentheses
-	so you can save a note indicating why it's being ignored
