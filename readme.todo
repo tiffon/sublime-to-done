@@ -15,8 +15,8 @@ This document details the syntax. Left-aligned texts are considered headings.
 
 Getting started
 -	Create a task by adding a '-' in front of it
-!----	Add hyphens to change the color
-	!-----	5 looks urgent
+----	Add hyphens to change the color
+	-----	5 looks urgent
 	----	4 for important items
 	---	3 for the middle
 	--	2 for the pretty light stuff
@@ -43,7 +43,7 @@ Sub-tasks
 
 
 Completed items have a '+'
-+--2	This item is finished because it starts with a'+'
++-2	This item is finished because it starts with a'+'
 	-3	This sub-task is finished bc it's parent is
 -2	Completion applies to sub-tasks
 -3	Use the keys `cmd /` shortcut to toggle completion
