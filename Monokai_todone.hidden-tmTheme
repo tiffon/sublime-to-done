@@ -9,10 +9,10 @@
 		<dict>
 			<key>settings</key>
 			<dict>
-				<key>gutterForeground</key>
-                <string>#606060</string>
 				<key>background</key>
 				<string>#272822</string>
+                <key>gutterForeground</key>
+                <string>#363636aa</string>
 				<key>caret</key>
 				<string>#F8F8F0</string>
 				<key>foreground</key>

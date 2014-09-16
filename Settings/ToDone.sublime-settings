@@ -9,7 +9,7 @@
     "fold_buttons": true,
 
     // Hides the fold buttons unless the mouse is over the gutter
-    "fade_fold_buttons": false,
+    "fade_fold_buttons": true,
 
     // Columns in which to display vertical rulers
     "rulers": [],
@@ -23,5 +23,8 @@
     // Set to true to insert spaces when tab is pressed
     "translate_tabs_to_spaces": false,
 
-    "color_scheme": "Packages/ToDone/Monokai_todone.hidden-tmTheme"
+    "color_scheme": "Packages/ToDone/Monokai_todone.hidden-tmTheme",
+
+    // Spacing between the gutter and the text
+    "margin": 8,
 }
