@@ -29,20 +29,17 @@ repository:
       - include: '#lvl-3'
       - include: '#lvl-4'
       - include: '#lvl-5'
-      - include: '#note-include'
-      - include: '#raw-note'
-
-  note-include:
-    patterns:
       - include: '#note'
-      - include: '#note-em'
 
   note:
     name: storage.task-note.todone
-    begin: ^\s*(?!(!|\-|\+|\.|///))
+    begin: (?=.)
     end: $
     patterns:
+      - match: |
+          ((?!///)[^`])+
       - include: '#note-em'
+      - include: '#raw-note'
 
   note-em:
     name: storage.task-note.em.todone
@@ -65,6 +62,8 @@ repository:
       '0': {name: punctuation.definition.note.raw.end.todone}
     patterns:
       - include: '#note-em'
+      - match: |
+          ((?!///)[^`])+
 
   task-over-raw-note:
     begin: ///
@@ -157,7 +156,6 @@ repository:
       '{{ 3 * i + 5 }}': {name: entity.name.task.lvl{{ i + 1 }}.todone}
       {% endfor %}
     end: ^(?!\1\s)|^(?=\s*\n)|^(?=\1[^\s])
-    # end: ^(?!\1)|^(?=\s*\n)|^(?=\1(\.|!|\-|\+))
     endCaptures:
       '0': {name: punctuation.definition.class-block.todone}
     patterns:

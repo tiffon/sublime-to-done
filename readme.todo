@@ -29,7 +29,7 @@ Getting started
 
 
 Notes
--3	A task can have notes: by adding a ':' and then putting in the notes
+-3	A task can have notes: by adding a ':' then add text
 -3	Or by adding the notes under the task
 	Like these notes. Notes can have `emphasis` by adding slanted quotes.
 
@@ -37,9 +37,9 @@ Notes
 Sub-tasks
 -4	A task can have sub-tasks
 	-2	Sub tasks are indented
-	-1	And they can have: notes just like any task
+	-1	And they can have: notes - just like any task
 		-3	Or 3rd level sub-tasks
-			With notes under
+			With notes underneath
 
 
 Completed items have a '+'
@@ -113,11 +113,11 @@ Hard-tabs at 8-width or 5-width
 
 
 More expressive notes
----	If you need something more complex notes: ///
+---	If you need more complex notes: ///
 	An `explicit note` is started by the `///` characters.
 	An explicit note can have lines that start with a `-` or `+`.
 	Explicit notes end when another `///` is encountered.
-	Whitespace is ignored
+#	Whitespace is ignored
 	- some simple notes
 	- that aren't considered tasks
 	- but are a list

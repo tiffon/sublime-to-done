@@ -99,11 +99,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#note-include</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#raw-note</string>
+					<string>#note</string>
 				</dict>
 			</array>
 		</dict>
@@ -484,7 +480,7 @@
 		<key>note</key>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(?!(!|\-|\+|\.|///))</string>
+			<string>(?=.)</string>
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
@@ -492,8 +488,17 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>match</key>
+					<string>((?!///)[^`])+
+</string>
+				</dict>
+				<dict>
 					<key>include</key>
 					<string>#note-em</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#raw-note</string>
 				</dict>
 			</array>
 		</dict>
@@ -529,20 +534,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>note-include</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#note</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#note-em</string>
-				</dict>
-			</array>
-		</dict>
 		<key>raw-note</key>
 		<dict>
 			<key>begin</key>
@@ -572,6 +563,11 @@
 				<dict>
 					<key>include</key>
 					<string>#note-em</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>((?!///)[^`])+
+</string>
 				</dict>
 			</array>
 		</dict>
