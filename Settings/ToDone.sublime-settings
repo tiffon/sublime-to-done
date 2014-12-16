@@ -26,5 +26,5 @@
     "color_scheme": "Packages/ToDone/Monokai_todone.hidden-tmTheme",
 
     // Spacing between the gutter and the text
-    "margin": 8,
+    "margin": 8
 }
