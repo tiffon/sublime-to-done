@@ -176,7 +176,7 @@ repository:
 
   lvl-1:
     name: storage.type.task.todone
-    begin: (\s*)(\-{1}|\-(1))\s((?:://|/(?!//)|[^:\n/])*)
+    begin: (\s*)(\-{1}|\-(1))\s+((?:://|/(?!//)|[^:\n/])*)
     beginCaptures:
       '0': {name: symbol.definition.task-heading.todone}
       '2': {name: keyword.operator.task.lvl1.todone}
@@ -188,7 +188,7 @@ repository:
 
   lvl-2:
     name: storage.type.task.todone
-    begin: (\s*)(\-{2}|\-(2))\s((?:://|/(?!//)|[^:\n/])*)
+    begin: (\s*)(\-{2}|\-(2))\s+((?:://|/(?!//)|[^:\n/])*)
     beginCaptures:
       '0': {name: symbol.definition.task-heading.todone}
       '2': {name: keyword.operator.task.lvl2.todone}
@@ -200,7 +200,7 @@ repository:
 
   lvl-3:
     name: storage.type.task.todone
-    begin: (\s*)(\-{3}|\-(3))\s((?:://|/(?!//)|[^:\n/])*)
+    begin: (\s*)(\-{3}|\-(3))\s+((?:://|/(?!//)|[^:\n/])*)
     beginCaptures:
       '0': {name: symbol.definition.task-heading.todone}
       '2': {name: keyword.operator.task.lvl3.todone}
@@ -212,7 +212,7 @@ repository:
 
   lvl-4:
     name: storage.type.task.todone
-    begin: (\s*)(\-{4}|\-(4))\s((?:://|/(?!//)|[^:\n/])*)
+    begin: (\s*)(\-{4}|\-(4))\s+((?:://|/(?!//)|[^:\n/])*)
     beginCaptures:
       '0': {name: symbol.definition.task-heading.todone}
       '2': {name: keyword.operator.task.lvl4.todone}
@@ -224,7 +224,7 @@ repository:
 
   lvl-5:
     name: storage.type.task.todone
-    begin: (\s*)(\-{5}|\-(5))\s((?:://|/(?!//)|[^:\n/])*)
+    begin: (\s*)(\-{5}|\-(5))\s+((?:://|/(?!//)|[^:\n/])*)
     beginCaptures:
       '0': {name: symbol.definition.task-heading.todone}
       '2': {name: keyword.operator.task.lvl5.todone}

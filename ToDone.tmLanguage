@@ -162,7 +162,7 @@
 		<key>lvl-1</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{1}|\-(1))\s((?:://|/(?!//)|[^:\n/])*)</string>
+			<string>(\s*)(\-{1}|\-(1))\s+((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -201,7 +201,7 @@
 		<key>lvl-2</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{2}|\-(2))\s((?:://|/(?!//)|[^:\n/])*)</string>
+			<string>(\s*)(\-{2}|\-(2))\s+((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -240,7 +240,7 @@
 		<key>lvl-3</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{3}|\-(3))\s((?:://|/(?!//)|[^:\n/])*)</string>
+			<string>(\s*)(\-{3}|\-(3))\s+((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -279,7 +279,7 @@
 		<key>lvl-4</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{4}|\-(4))\s((?:://|/(?!//)|[^:\n/])*)</string>
+			<string>(\s*)(\-{4}|\-(4))\s+((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -318,7 +318,7 @@
 		<key>lvl-5</key>
 		<dict>
 			<key>begin</key>
-			<string>(\s*)(\-{5}|\-(5))\s((?:://|/(?!//)|[^:\n/])*)</string>
+			<string>(\s*)(\-{5}|\-(5))\s+((?:://|/(?!//)|[^:\n/])*)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
