@@ -1,0 +1,21 @@
+
+ToDone
+
+-	Version 1.0.10 Installed
+
+
+Changes
+-2	Material theme courtesy of github.com/arthurome
+
+
+How to switch to the new theme
+-2	Select the menu options:
+	-	Sublime Text
+	-	Preferences
+	-	Package Settings
+	-	ToDone
+	-	Settings - User
+-2	A file will open, add the following to it and save
+	{
+	    "color_scheme": "Packages/ToDone/Material-Theme-Darker_todone.hidden-tmTheme",
+	}
