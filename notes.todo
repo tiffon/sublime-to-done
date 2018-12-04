@@ -1,0 +1,202 @@
+
+#
+#	NOTE: A restart is required after installation.
+#
+-	TODO: is a restart required after installation?
+-0	TODO > is a restart required? | notes follow a pipe
+-0	TODO(joe) > is a restart required? |+
+		`|+` denotes the start of a note block
+		`|.` denotes the end of a note block
+		-	can have stuff in it that considered a note instead of a task
+	|.
+-0	A note block that cannot have highlights |||
+		`|+` denotes the start of a note block
+		`|.` denotes the end of a note block
+		-	can have stuff in it that considered a note instead of a task
+	|||.
+
+# labeled
+:	TODO(joe): stuff goes here | can have a note
+:4	TODO(bircan): can have multiple levels | noted
+
+# labeled alternates
+:	TODO(joe) | stuff goes here : can have a note
+	pipe stops the label
+:4	TODO(bircan) can have multiple levels : noted
+	first whitespace stops the label
+:4	[TODO(bircan)] can have multiple levels : noted
+	if a leading `[`, `(` or `/` is encountered, the label ends
+	with the closing `]`, `)` or the following `/`, e.g.
+:4	/ TODO(bircan) / can have multiple levels : noted
+:4	(TODO bircan) can have multiple levels : noted
+
+
+
+
+-2
+-2	TODO(joe): some stuff | a note
+-2	TODO(joe) | some stuff : a note
+	notes for bircan's todo
+	-2	syntax (this syntax does not include the alternates noted above)
+		-	leading: `:`
+		-	optional number
+		-	whitespace
+		-	label section
+			-	text colored based on label level
+			-	ends on first colon or pipe (unless in a parens section)
+			-	can contain whitespace
+			-	parens section
+				-	anything in parens is highlighted differently
+				-	parens must be closed
+			-	if ends on colon, next section is title section
+			-	if ends on pipe, next section is notes
+		-	title section
+			-	ends on first pipe |
+			-	text color is same as level 1
+
+
+# Open questions
+?	a question mark now starts a new class of item - an open question
+	=	a `=` now starts a new class of item - an answer to a question
+		-
+	?2	can a question have several levels
+		=	yes |
+
+text flush left is just a note
+
+# titles require leading `#` characters
+
+##
+	multiline titles
+##
+
+types of emphasis
+-	backticks
+-	single quotes
+-	double quotes
+
+-0	TODO: something here | and some more notes here and some more notes here and some more notes here and some more notes here and some more notes here and some more notes here and some more notes here
+
+
+
+
+
+This document details the syntax. Left-aligned texts are considered headings.
+
+/*
+	Offset headings can be created by enclosing text in forward-slashes
+	and asterisks
+*/
+
+
+Getting started
+-	Create a task by adding a '-' in front of it
+----	Add hyphens to change the color
+	-----	5 looks urgent
+	----	4 for important items
+	---	3 for the middle
+	--	2 for the pretty light stuff
+	-	1 for the low-priority or easy stuff
+-4	Alternatively, you can add a number after one hyphen
+	-3	This starts with a `-3`
+	-2	`-2` is the same `--`
+	-1	etc...
+	-	This is new in 1.0.5
+
+
+Notes
+-3	A task can have notes: by adding a ':' then add text
+-3	Or by adding the notes under the task
+	Like these notes. Notes can have `emphasis` by adding slanted quotes.
+
+
+Sub-tasks
+-4	A task can have sub-tasks
+	-2	Sub tasks are indented
+	-1	And they can have: notes - just like any task
+		-3	Or 3rd level sub-tasks
+			With notes underneath
+
+
+
+Completed items have a '+'
++-2	This item is finished because it starts with a'+'
+	Finished items are darkened
+	-3	This sub-task is finished bc: its parent is
+	-2	Completion applies to sub-tasks
+-	Use the keys `cmd /` shortcut to toggle completion
+	It's just like toggling a comment
+
+State of emergency
+!-3	Emergency / Disaster: This item is in a state of emergency.
+	It's in the emergency state because of the `leading exclamation mark`.
+	----	The emergency will apply to any sub-tasks
+	--	Like these two
++!--	A completed emergency task
+	This emergency item was handled.
+
+
+Ignore tasks by adding a leading '.'
+.--	This item is ignored because it starts with a `period`
+-2	Ignoring applies to sub-tasks
+	.-	This sub-task is ignored
+		---	This sub-sub-task is ignored bc its parent is
+-3	Include a reason for ignoring it
+.-4	(Reason for ignoring) Ignored items can have a note in parentheses
+	so you can indicate why it's being ignored
+
+
+
+The symbol list
+----	To skim current tasks
+	use the `cmd r` shortcut to see an outline (notes are omited)
+
+
+Hard-tabs at 8-width or 5-width
+----	A hard-tab at 8-space width AFTER the '-'s
+	`Why?`
+		The task titles will always line up.
+	`Why hard-tabs?`
+		The alignment of the title won't re-adjust when you change
+		the number of dashes, add an exclamation mark or plus-sign.
+	`Why 8-space width?`
+		8 is the right number because there is a max of 7 token characters
+		that might precede the task-title. 7 because you can have up
+		to `5` dashes + `1` exclamation mark + `1` plus-sign. Tabs
+		that are `8` spaces wide allows there to always be at least one
+		an extra space between the tokens and the task title:
+	+!-----	A title here
+	--	A title here
+		^ `sweet alignment`
+
+-4	Alternatively, Hard-tabs at 5-space width
+	If the `-4` pattern is used then 5 characters allows for:
+	-	`+` or `.`  token
+	-	! token
+	-	- token
+	-	A number
+	-	A final space to separate the title
+	.!-4	(for example)
+	-3	The default Tab Size can be changed via the menu option:
+		-	Sublime Text
+		-	Preferences
+		-	Package Settings
+		-	ToDone
+		-	Settings - User
+		-2	And adding the following to the file: `
+			{
+			    // The number of spaces a tab is considered equal to
+			    "tab_size": 5
+			}`
+
+
+More expressive notes
+---	If you need more complex notes: ///
+	An `explicit note` is started by the `///` characters.
+	An explicit note can have lines that start with a `-` or `+`.
+	Explicit notes end when another `///` is encountered.
+#	whitespace is ignored
+	- some simple notes
+	- that aren't considered tasks
+	- but are a list
+	///
