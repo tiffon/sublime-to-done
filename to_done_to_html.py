@@ -62,7 +62,7 @@ class ToDoneToHtmlCommand(sublime_plugin.TextCommand):
             postfix = "</span>" + postfix
 
             if done:
-                prefix = prefix + "<span style=\"color:lightgray;\">"
+                prefix = prefix + "<span style=\"color:lightgray; background-color: white;\">"
                 postfix = "</span>" + postfix
 
             list_level = self.indent_level_map[indent]
@@ -92,7 +92,6 @@ class ToDoneToHtmlCommand(sublime_plugin.TextCommand):
                 indent_levels.append(spaces)
 
         level = 0
-        print(self.indent_level_map)
         for spaces in sorted(indent_levels):
             self.indent_level_map[spaces] = level
             level = level + 1
@@ -149,12 +148,12 @@ def get_todo_level(line):
 def dash_to_style(dash_count):
     """Convert TODO level to a CSS style statement"""
     style_dict = {
-        0 : "color:blue; font-size: 120%; font-weight: bold;",
+        0 : "color:black; font-size: 120%; font-weight: bold;",
         1 : "color:gray;",
         2 : "color:green;",
         3 : "color:purple",
-        4 : "color:black; font-size: 100%; font-weight: bold;",
-        5 : "color:black; font-size: 110%; font-weight: bold; background-color: #FFFF00"
+        4 : "color:black;",
+        5 : "color:black; font-weight: bold; background-color: #FFFF00"
     }
 
     return style_dict[dash_count]
