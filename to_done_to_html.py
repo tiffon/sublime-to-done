@@ -5,10 +5,14 @@ your TODOs via email.
 This script by Anjul Patney (Original plugin here: https://github.com/tiffon/sublime-to-done)
 """
 import html
+import re
 import tempfile
 import webbrowser
 import sublime
 import sublime_plugin
+
+# Regex taken from https://gist.github.com/gruber/249502
+URL_REGEX = r'(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))'
 
 class ToDoneToHtmlCommand(sublime_plugin.TextCommand):
     """ToDone to HTML Class"""
@@ -58,7 +62,11 @@ class ToDoneToHtmlCommand(sublime_plugin.TextCommand):
 
             dashes, line_nospace = get_todo_level(line_nospace)
 
-            prefix = prefix + "<span style=\"%s\">" % dash_to_style(dashes)
+            line_nospace = html.escape(line_nospace)
+
+            line_nospace = re.sub(URL_REGEX, r'<a href="\1">\1</a>', line_nospace)
+
+            prefix = prefix + "<span style=\"%s\">" % dash_to_style(dashes, indent)
             postfix = "</span>" + postfix
 
             if done:
@@ -73,7 +81,7 @@ class ToDoneToHtmlCommand(sublime_plugin.TextCommand):
             if list_level < last_list_level:
                 prefix = "</ul>" * (last_list_level - list_level) + "\n" + prefix
 
-            processed_lines.append(" " * indent + prefix + html.escape(line_nospace) + postfix)
+            processed_lines.append(" " * indent + prefix + line_nospace + postfix)
             last_list_level = list_level
 
         for _ in range(list_level):
@@ -145,7 +153,7 @@ def get_todo_level(line):
 
     return retval
 
-def dash_to_style(dash_count):
+def dash_to_style(dash_count, indent):
     """Convert TODO level to a CSS style statement"""
     style_dict = {
         0 : "color:black; font-size: 120%; font-weight: bold;",
@@ -155,8 +163,11 @@ def dash_to_style(dash_count):
         4 : "color:black;",
         5 : "color:black; font-weight: bold; background-color: #FFFF00"
     }
-
-    return style_dict[dash_count]
+    if dash_count == 0 and indent > 0:
+        style = style_dict[4]
+    else:
+        style = style_dict[dash_count]
+    return style
 
 def show_in_browser(body_html):
     """Write HTML to a temp file, then show in browser"""
