@@ -1,5 +1,7 @@
 # Sublime Text package for to do lists
 
+Available on Package Control – [ToDone](https://packagecontrol.io/packages/ToDone)
+
 ## About
 
 This package is a simple tool for creating to do lists with the following features:
