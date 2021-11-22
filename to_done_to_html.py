@@ -32,6 +32,9 @@ class ToDoneToHtmlCommand(sublime_plugin.TextCommand):
 
         lines = self.get_selected_text().splitlines()
 
+        if len(lines) == 0:
+            lines = self.view.substr(sublime.Region(0, self.view.size())).splitlines()
+
         processed_lines = []
 
         last_list_level = 0
